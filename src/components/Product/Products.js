@@ -1,10 +1,10 @@
-import React from "react";
+// import React from "react";
 import Product from "../Product/Product";
-import "./Product.css";
+import "./Products.css";
 
 const Products = () => {
   return (
-    <>
+    <div className="products_container">
       <div className="products_row">
         <Product
           key="1"
@@ -42,7 +42,7 @@ const Products = () => {
           title="e.l.f. Monochromatic Multi Stick, Luxuriously Creamy & Blendable Color, For Eyes, Lips & Cheeks, Dazzling Peony, 0.17 oz (5 g)"
           image="https://m.media-amazon.com/images/I/61KedtnoewL._SX679_.jpg"
           rating={4}
-          price={5.00}
+          price={5.95}
         />
         <Product
           id="6"
@@ -52,7 +52,7 @@ const Products = () => {
           price={7.87}
         />
       </div>
-    </>
+    </div>
   );
 };
 
