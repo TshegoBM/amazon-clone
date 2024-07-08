@@ -27,6 +27,7 @@ const App = () => {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       console.log("User is ->", authUser);
+      
       if (authUser) {
         setUser(authUser);
       } else {

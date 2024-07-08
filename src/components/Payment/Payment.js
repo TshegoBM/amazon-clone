@@ -23,13 +23,14 @@ const Payment = () => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    // Generate the special Stripe secret
+    // Generate the special stripe secret which will allow us to charge the customer
     const getClientSecret = async () => {
       try {
         const response = await axios.post("/payments/create", {
           total: getBasketTotal(basket) * 100,
         });
         setClientSecret(response.data.clientSecret);
+        console.log("test",response.data)
       } catch (error) {
         console.error("Error fetching client secret:", error);
       }

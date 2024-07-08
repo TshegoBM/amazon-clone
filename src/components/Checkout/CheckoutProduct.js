@@ -14,13 +14,13 @@ const CheckoutProduct = ({ id, image, rating, title, price, hideButton }) => {
     <div className="checkout_product">
       <img className="checkout_product_image" src={image} alt="" />
       <div className="checkout_product_info">
-        <p className="checkout_product_rating">{title}</p>
+        <p className="checkout_product_title">{title}</p>
 
         <div className="product_rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p key= {i}> ⭐ </p>
+              <p key={i}>⭐</p>
             ))}
         </div>
         <p className="checkout_product_price">

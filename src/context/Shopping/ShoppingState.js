@@ -28,6 +28,7 @@ export const ShoppingState = (props) => {
   };
 
   const setUser = (user) => {
+    console.log("User payload", user);
     dispatch({
       type: "SET_USER",
       payload: user,
