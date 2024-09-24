@@ -20,7 +20,7 @@ const Payment = () => {
   const [processing, setProcessing] = useState("");
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
-  const [clientSecret, setClientSecret] = useState("");
+  const [clientSecret, setClientSecret] = useState(true);
 
   useEffect(() => {
     // Generate the special stripe secret which will allow us to charge the customer
