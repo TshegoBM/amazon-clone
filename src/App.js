@@ -25,7 +25,7 @@ const App = () => {
   const { setUser } = shoppingContext;
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       console.log("User is ->", authUser);
       
       if (authUser) {
@@ -35,8 +35,8 @@ const App = () => {
       }
     });
 
-
-  }, []);
+    return () => unsubscribe();
+  }, [setUser]);
 
    
   return (
