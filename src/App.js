@@ -25,7 +25,7 @@ const App = () => {
   const { setUser } = shoppingContext;
 
   useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
       console.log("User is ->", authUser);
       
       if (authUser) {
@@ -34,7 +34,11 @@ const App = () => {
         setUser(null);
       }
     });
-  }, []);
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, [setUser]); // Include setUser in the dependency array
+
   return (
     <>
       <Header />
@@ -55,12 +59,12 @@ const App = () => {
           <Route path="/checkout">
             <Checkout />
           </Route>
-          <Route path="/Payment">
+          <Route path="/payment">
             <Elements stripe={stripePromise}>
               <Payment />
             </Elements>
           </Route>
-          <Route path="/Login">
+          <Route path="/login">
             <Login />
           </Route>
           <Route path="/orders">
