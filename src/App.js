@@ -25,7 +25,7 @@ const App = () => {
   const { setUser } = shoppingContext;
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    auth.onAuthStateChanged((authUser) => {
       console.log("User is ->", authUser);
       
       if (authUser) {
@@ -35,10 +35,10 @@ const App = () => {
       }
     });
 
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
-  }, [setUser]); // Include setUser in the dependency array
 
+  }, []);
+
+   
   return (
     <>
       <Header />
